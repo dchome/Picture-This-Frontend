@@ -1,19 +1,8 @@
-$(document).ready(function(){
-  // $(document).on('deviceready', function(){
-  //       var ft = new FileTransfer();
-  //       var options = new FileUploadOptions();
-  //       options.fileName = "rounds/" + roundId + "/users" + userId;
-  //       options.params = {"photo[user_id]": userId, "photo[round_id]": roundId, "photo[prompt_id]": promptId, "photo[file_path]": fileName}
-  //       options.chunkedMode = false;
-  // });
+function getExistingPrompt(){
+  
+}
 
-  $('#display').on('click', '#photo-button', function(event){
-    getPicture()//.then(sendPicture, onPictureFail);
-  });
-
-});
-
-function getPrompt(){
+function getNewPrompt(){
   
 }
 
