@@ -22,9 +22,10 @@ $(document).ready(function(){
         getExistingPrompt();
     })
 
-    $('#display').on('click', '#button-to-new-prompt', function() {
+    $('#display').on('click', '#button-to-new-prompt', function(event) {
+        event.preventDefault();
         loadPromptView();
-        getNewPrompt();
+        createRound();
     })
 
     $('#display').on('click', '#button-to-contacts', function(event){

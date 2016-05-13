@@ -2,8 +2,12 @@ function getExistingPrompt(){
   
 }
 
-function getNewPrompt(){
-  
+function createRound(){
+  $.post("http://something/rounds", function(response){ data: data.serialize()
+  }).done({
+    roundId = response.roundId;
+    prompt = response.prompt;
+  })
 }
 
 function getPicture() {
