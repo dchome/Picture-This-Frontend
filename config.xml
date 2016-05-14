@@ -101,8 +101,14 @@
         <icon height="360" platform="windows" src="www/res/icon/windows/Wide310x150Logo.scale-240.png" width="744" />
         <splash height="1920" platform="windows" src="www/res/screen/windows/SplashScreenPhone.scale-240.png" width="1152" />
     </platform>
-    <access origin="*" />
-    <access origin="http://boiling-cliffs-60210.herokuapp.com/*"/>
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <access origin = "*" />
+    <access origin = "http://www.picture-this-app.com/*/*" />
+    <allow-intent href="http://www.picture-this-app.com/*/*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="http://www.picture-this-app.com/*/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

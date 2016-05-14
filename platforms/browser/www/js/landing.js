@@ -3,6 +3,10 @@ $(document).ready(function(){
     var args = {
         prompt: "find something beautiful",
 
+        openRounds: [],
+
+        closed_rounds: [],
+
         roundId: null,
 
         photoId: null,
@@ -10,7 +14,7 @@ $(document).ready(function(){
         contacts: null,
 
         user : {
-            id: "",
+            id: 1,
 
             firstName: "",
 
@@ -23,10 +27,12 @@ $(document).ready(function(){
     loadOpenRoundsView(args);
 
     //goes to the prompt for an open round
-    $('#display').on('click', '#button-to-open-prompt', function(event) {
+    $('#display').on('click', '.open-round-link', function(event) {
+        $target = event.target
         event.preventDefault();
+        debugger;
+        args.roundId = parseInt($target.id)
         loadPromptView(args);
-        getExistingPrompt(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
@@ -43,13 +49,11 @@ $(document).ready(function(){
 
     $('#display').on('click', '#button-to-open-rounds', function(event) {
         event.preventDefault();
-        clearNonUserParams(args)
-        loadOpenRoundsView(event, args);
+        loadOpenRoundsView(args);
     })
 
     $('#display').on('click', '#button-to-closed-rounds', function(event) {
         event.preventDefault();
-        clearNonUserParams(args)
         loadClosedRoundsView(args);
         getClosedRounds(args);
     })
@@ -66,9 +70,10 @@ function clearNonUserParams(args){
     args.contacts = null;
 }
 
-function loadOpenRoundsView(event, args){
+function loadOpenRoundsView(args){
     $('#display').load('html/open_rounds.html');
-    getOpenRounds(event, args);
+    // test()
+    getOpenRounds(args);
 }
 
 function loadContactsView(){

@@ -1,18 +1,14 @@
-function getOpenRounds(event, args){
-  $target = $(event.target)
-  $.ajax({url: 'http//:something/user/'+args.user.id+'open_rounds'
-    }).done(function(response){
-      for (var i = 0; i < response.params.open_rounds..length; i++) {
-        args.rounds = response.params.open_rounds
-        $('#open-rounds-list').append('
-          <li><ul>
-            <li>Created By:'
-              +args.rounds[i].creator_name
-              +' - '
-              +args.rounds[i].time_remaining
-              +'<button id="open-round-'+i'" type="button">Go to Prompt</button>'
-          '</ul></li>'
-        )
-      }
-    })
+function getOpenRounds(args){ // removed args params
+  $.ajax({url: 'http://www.picture-this-app.com/users/1/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
+  }).done(function(response){
+    args.openRounds = response.rounds
+    //alert($.parseJSON(response.rounds[0]));
+    console.log(args.openRounds)
+    console.log(args.openRounds.length)
+    for (var i = 0; i < args.openRounds.length; i++){
+      $('#open-rounds-list').append('<li class="open-round-link" id="'+i+'">Created By: '+args.openRounds[i].creator_first_name+' - '+args.openRounds[i].end_time+'</li>')
+    }
+  }).fail(function(response){
+    alert("Something is wrong.");
+  })
 }
