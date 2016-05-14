@@ -7,9 +7,9 @@ $(document).ready(function(){
 
         photoId: null,
 
-        contacts: null
+        contacts: null,
 
-        user = {
+        user : {
             id: "",
 
             firstName: "",
@@ -23,7 +23,8 @@ $(document).ready(function(){
     loadOpenRoundsView(args);
 
     //goes to the prompt for an open round
-    $('#display').on('click', '#button-to-open-prompt', function() {
+    $('#display').on('click', '#button-to-open-prompt', function(event) {
+        event.preventDefault();
         loadPromptView(args);
         getExistingPrompt(args);
     })
@@ -35,18 +36,20 @@ $(document).ready(function(){
     })
 
     $('#display').on('click', '#button-to-contacts', function(event){
+        event.preventDefault();
         getContacts();
         loadContactsView(args);
     })
 
-    $('#display').on('click', '#button-to-open-rounds', function() {
-        clearNonUserParams()
-        loadOpenRoundsView(args);
-        getOpenRounds(args);
+    $('#display').on('click', '#button-to-open-rounds', function(event) {
+        event.preventDefault();
+        clearNonUserParams(args)
+        loadOpenRoundsView(event, args);
     })
 
-    $('#display').on('click', '#button-to-closed-rounds', function() {
-        clearNonUserParams()
+    $('#display').on('click', '#button-to-closed-rounds', function(event) {
+        event.preventDefault();
+        clearNonUserParams(args)
         loadClosedRoundsView(args);
         getClosedRounds(args);
     })
@@ -56,15 +59,16 @@ $(document).ready(function(){
     });
 })
 
-function clearNonUserParams(){
-    prompt = null;
-    roundId = null;
-    photoId = null;
-    contacts = null;
+function clearNonUserParams(args){
+    args.prompt = null;
+    args.roundId = null;
+    args.photoId = null;
+    args.contacts = null;
 }
 
-function loadOpenRoundsView(args){
-    $('#display').load('html/open_rounds.html')
+function loadOpenRoundsView(event, args){
+    $('#display').load('html/open_rounds.html');
+    getOpenRounds(event, args);
 }
 
 function loadContactsView(){
