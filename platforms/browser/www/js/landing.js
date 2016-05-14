@@ -1,13 +1,12 @@
 $(document).ready(function(){
     //need a method to get user info here
     var args = {
-        prompt: "find something beautiful",
 
         openRounds: [],
 
         closed_rounds: [],
 
-        roundId: null,
+        roundIndex: null,
 
         photoId: null,
 
@@ -30,8 +29,7 @@ $(document).ready(function(){
     $('#display').on('click', '.open-round-link', function(event) {
         $target = event.target
         event.preventDefault();
-        debugger;
-        args.roundId = parseInt($target.id)
+        args.roundIndex = parseInt($target.id)
         loadPromptView(args);
     })
 
@@ -71,9 +69,9 @@ function clearNonUserParams(args){
 }
 
 function loadOpenRoundsView(args){
-    $('#display').load('html/open_rounds.html');
-    // test()
-    getOpenRounds(args);
+    $('#display').load('html/open_rounds.html', function(){
+        getOpenRounds(args)
+    });
 }
 
 function loadContactsView(){
@@ -81,7 +79,9 @@ function loadContactsView(){
 }
 
 function loadPromptView(args){
-    $('#display').load('html/prompt.html')
+    $('#display').load('html/prompt.html', function(){
+        getExistingPrompt(args);
+    });
 }
 
 function loadClosedRoundsView(args){
