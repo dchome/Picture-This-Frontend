@@ -1,5 +1,5 @@
-function getExistingPrompt(){
-  
+function getExistingPrompt(args){
+
 }
 
 function createRound(){
@@ -10,7 +10,7 @@ function createRound(){
 
   $.ajax({
     type: "POST",
-    url: "http://something/rounds", 
+    url: "http://something/rounds",
     data: data
   }).done(function(response){
     roundId = response.roundId;

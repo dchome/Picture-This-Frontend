@@ -1,48 +1,54 @@
 $(document).ready(function(){
     //need a method to get user info here
-    var user = function(){
-        id = "",
-        firstName = "",
-        lastName = ""
-        //any other stuff
+    var args = {
+        prompt: "find something beautiful",
+
+        roundId: null,
+
+        photoId: null,
+
+        contacts: null
+
+        user = {
+            id: "",
+
+            firstName: "",
+
+            lastName:""
+
+            //any other stuff
+        }
     }
-    var prompt = null;
 
-    var roundId = null;
-
-    var photoId = null;
-
-    var contacts = null;
-
-    loadOpenRoundsView(); 
+    loadOpenRoundsView(args);
 
     //goes to the prompt for an open round
     $('#display').on('click', '#button-to-open-prompt', function() {
-        loadPromptView();
-        getExistingPrompt();
+        loadPromptView(args);
+        getExistingPrompt(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
         event.preventDefault();
-        loadPromptView();
-        createRound();
+        loadPromptView(args);
+        createRound(args);
     })
 
     $('#display').on('click', '#button-to-contacts', function(event){
         getContacts();
-        loadContactsView();
+        loadContactsView(args);
     })
 
     $('#display').on('click', '#button-to-open-rounds', function() {
         clearNonUserParams()
-        loadOpenRoundsView();
-        getOpenRounds();
+        loadOpenRoundsView(args);
+        getOpenRounds(args);
     })
 
     $('#display').on('click', '#button-to-closed-rounds', function() {
         clearNonUserParams()
-        loadClosedRoundsView();
-        getClosedRounds();
+        loadClosedRoundsView(args);
+        getClosedRounds(args);
     })
 
     $('#display').on('click', '#photo-button', function(event){
@@ -57,7 +63,7 @@ function clearNonUserParams(){
     contacts = null;
 }
 
-function loadOpenRoundsView(){
+function loadOpenRoundsView(args){
     $('#display').load('html/open_rounds.html')
 }
 
@@ -65,14 +71,14 @@ function loadContactsView(){
     $('#display').load('html/contacts.html')
 }
 
-function loadPromptView(){
+function loadPromptView(args){
     $('#display').load('html/prompt.html')
 }
 
-function loadClosedRoundsView(){
+function loadClosedRoundsView(args){
     $('#display').load('html/closed_rounds.html')
 }
 
-function loadPhotoView(){
+function loadPhotoView(args){
     $('#display').load('html/photo_show.html')
 }
