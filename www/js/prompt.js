@@ -3,8 +3,16 @@ function getExistingPrompt(){
 }
 
 function createRound(){
-  $.post("http://something/rounds", function(response){ data: data.serialize()
-  }).done({
+    var data = { 'contacts[]' : []};
+    $(":checked").each(function() {
+        data['user_ids[]'].push($(this).val());
+    });
+
+  $.ajax({
+    type: "POST",
+    url: "http://something/rounds", 
+    data: data
+  }).done(function(response){
     roundId = response.roundId;
     prompt = response.prompt;
   })

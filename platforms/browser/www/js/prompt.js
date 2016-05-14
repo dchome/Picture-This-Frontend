@@ -2,8 +2,20 @@ function getExistingPrompt(){
   
 }
 
-function getNewPrompt(){
-  
+function createRound(){
+    var data = { 'contacts[]' : []};
+    $(":checked").each(function() {
+        data['user_ids[]'].push($(this).val());
+    });
+
+  $.ajax({
+    type: "POST",
+    url: "http://something/rounds", 
+    data: data
+  }).done(function(response){
+    roundId = response.roundId;
+    prompt = response.prompt;
+  })
 }
 
 function getPicture() {

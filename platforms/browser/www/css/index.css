@@ -98,3 +98,11 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+#contacts-list {
+    list-style-type: none;
+}
+
+#contacts-list li {
+    font-size: 14px;
+}
