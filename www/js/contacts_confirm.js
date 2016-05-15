@@ -20,6 +20,6 @@ function createRound(args){
   //  prompt = response.round.prompt;
   //
   }).fail(function(response){
-    console.log(response)
+    alert("fail")
   })
 }

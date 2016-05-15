@@ -4,55 +4,40 @@ function getExistingPrompt(args){
 }
 
 function getPicture() {
-    navigator.camera.getPicture(onPictureSuccess, onPictureFail, {
+    navigator.camera.getPicture(onPictureSuccess, fail, {
         destinationType: Camera.DestinationType.FILE_URI,
         allowEdit: false });
 }
 
 function onPictureSuccess(imageURI) {
     $('#photospace').attr("src", imageURI);
-    return getFileEntry(imageURI);
+    var options = new FileUploadOptions();
+        options.fileKey="file";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
+
+    var params = new Object();
+        params.value1 = "test";
+        params.value2 = "param";
+
+    options.params = params;
+    options.chunkedMode = false;
+
+    alert(imageURI);
+    var ft = new FileTransfer();
+    ft.upload(imageURI, encodeURI("http://www.picture-this-app.com/rounds/1/photos"), win, fail, options);
 }
 
-function getFileEntry(imageURI) {
-  window.resolveLocalFileSystemURL(cordova.file.cacheDirectory, function success(dirEntry) {
-        // JPEG file
-        dirEntry.getFile("tempFile.jpeg", { create: true, exclusive: false }, function (fileEntry) {
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+    alert(r.response);
+    }
 
-            // Do something with it, like write to it, upload it, etc.
-            // $.post('postroute', {photo[user_id]: userId, photo[round_id]: roundId, photo[prompt_id]: promptId, photo[file_path]: fileEntry})
-            alert("got file: " + fileEntry);
-            // displayFileData(fileEntry.fullPath, "File copied to");
-
-        }, onErrorCreateFile);
-
-    }, onErrorResolveUrl);
+function fail(error) {
+    var message = ""
+    error.each(function(thing){message+=JSON.stringify(thing)})
+    alert("error:" + message );
+    console.log(error)
 }
-
-
-function onPictureFail(message) {
-}
-
-function onErrorCreateFile() {
-    alert("file not created");
-}
-
-function onErrorResolveUrl() {
-    alert("something wrong in resolving url");
-}
-
-// var win = function (r) {
-//     alert("Code = " + r.responseCode);
-//     alert("Response = " + r.response);
-//     alert("Sent = " + r.bytesSent);
-// }
-
-// var fail = function (error) {
-//     alert("An error has occurred: Code = " + error.code);
-//     alert("upload error source " + error.source);
-//     alert("upload error target " + error.target);
-// }
-
-// function sendPicture(fileURL) {
-//     ft.upload(fileURL, encodeURI("http://ourserver"), win, fail, options);
-// }
