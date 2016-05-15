@@ -7,12 +7,11 @@ function getContacts() {
 }
 
 function onContactsSuccess(contacts){
-  alert("You have "+contacts.length+" contacts.")
-  for (var i = 1; i < contacts.length; i++) {
-    $('#contacts-list').append(
-      '<input type="checkbox" name="contacts[]" value="'+[contacts[i].name.formatted, contacts[i].phoneNumbers[0].value]+'/>'+contacts[i].name.formatted+'<br>'
-      );
-  }
+  //write function to standardize phone numbers
+  // for (var i = 1; i < contacts.length; i++) {
+  //   $('#contacts-list').append('<li>'+contacts[i].name.formatted+': '+contacts[i].phoneNumbers[0].value+'</li><br>');
+  // }
+  //$('#contacts-list').append('<input type="checkbox" name="contacts" value=""
 }
 
 function onContactsFail(message) {

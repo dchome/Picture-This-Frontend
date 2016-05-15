@@ -42,12 +42,6 @@ $(document).ready(function(){
         createRound(args);
     })
 
-    $('#display').on('click', '#button-to-contacts', function(event){
-        event.preventDefault();
-        getContacts();
-        loadContactsView(args);
-    })
-
     $('#display').on('click', '#button-to-open-rounds', function(event) {
         event.preventDefault();
         loadOpenRoundsView(args);
@@ -82,7 +76,9 @@ function loadOpenRoundsView(args){
 }
 
 function loadContactsView(){
-    $('#display').load('html/contacts.html')
+    $('#display').load('html/contacts.html', function(){
+      getContacts();
+    })
 }
 
 function loadPromptView(args){
