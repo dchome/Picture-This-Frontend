@@ -3,22 +3,6 @@ function getExistingPrompt(args){
     $('#prompt-time').html(args.openRounds[args.roundIndex].end_time)
 }
 
-function createRound(){
-  //   var data = { 'contacts[]' : []};
-  //   $(":checked").each(function() {
-  //       data['user_ids[]'].push($(this).val());
-  //   });
-
-  // $.ajax({
-  //   type: "POST",
-  //   url: "http://something/rounds",
-  //   data: data
-  // }).done(function(response){
-  //   roundId = response.roundId;
-  //   prompt = response.prompt;
-  // })
-}
-
 function getPicture() {
     navigator.camera.getPicture(onPictureSuccess, onPictureFail, {
         destinationType: Camera.DestinationType.FILE_URI,

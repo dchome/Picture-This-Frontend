@@ -12,7 +12,7 @@ $(document).ready(function(){
 
         photoId: null,
 
-        contacts: null,
+        contacts: [],
 
         user : {
             id: 1
@@ -29,6 +29,14 @@ $(document).ready(function(){
         loadPromptView(args);
     })
 
+    $('#display').on('click', '.gallery-link', function(event) {
+        $target = event.target;
+        event.preventDefault();
+        args.roundIndex = parseInt($target.id)
+        args.roundId = args.closedRounds[args.roundIndex].round_id
+        loadGalleryView(args);
+    })
+
     $('#display').on('click', '.deck-link', function(event) {
         $target = event.target
         event.preventDefault();
@@ -38,13 +46,18 @@ $(document).ready(function(){
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
         event.preventDefault();
-        loadPromptView(args);
         createRound(args);
     })
 
     $('#display').on('click', '#button-to-contacts', function(event){
         event.preventDefault();
         loadContactsView(args);
+    })
+
+    $('#display').on('click', '#button-to-contacts-confirm', function(event){
+        event.preventDefault();
+        assignContacts(args);
+        loadConfirmContactsView(args);
     })
 
     $('#display').on('click', '#button-to-open-rounds', function(event) {
@@ -80,9 +93,15 @@ function loadOpenRoundsView(args){
     });
 }
 
-function loadContactsView(){
+function loadContactsView(args){
     $('#display').load('html/contacts.html', function(){
-      getContacts();
+      getContacts(args);
+    })
+}
+
+function loadConfirmContactsView(args){
+    $('#display').load('html/contacts_confirm.html', function(){
+      getContactsToConfirm(args);
     })
 }
 
@@ -104,6 +123,12 @@ function loadDecksView(args){
     });
 }
 
+function loadGalleryView(args){
+    $('#display').load('html/gallery.html', function(){
+        getGallery(args)
+    });
+}
+
 function loadPhotoView(args){
-    $('#display').load('html/photo_show.html')
+    $('#display').load('html/photo.html')
 }

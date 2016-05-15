@@ -114,3 +114,8 @@ h1 {
     list-style-type: none;
     margin-left: -70px;
 }
+
+.gallery-photo {
+    height: 100px;
+    width: auto;
+}
