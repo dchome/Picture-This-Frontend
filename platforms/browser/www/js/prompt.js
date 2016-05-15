@@ -1,21 +1,22 @@
-function getExistingPrompt(){
-  
+function getExistingPrompt(args){
+    $('#prompt-body').html(args.openRounds[args.roundIndex].prompt)
+    $('#prompt-time').html(args.openRounds[args.roundIndex].end_time)
 }
 
 function createRound(){
-    var data = { 'contacts[]' : []};
-    $(":checked").each(function() {
-        data['user_ids[]'].push($(this).val());
-    });
+  //   var data = { 'contacts[]' : []};
+  //   $(":checked").each(function() {
+  //       data['user_ids[]'].push($(this).val());
+  //   });
 
-  $.ajax({
-    type: "POST",
-    url: "http://something/rounds", 
-    data: data
-  }).done(function(response){
-    roundId = response.roundId;
-    prompt = response.prompt;
-  })
+  // $.ajax({
+  //   type: "POST",
+  //   url: "http://something/rounds",
+  //   data: data
+  // }).done(function(response){
+  //   roundId = response.roundId;
+  //   prompt = response.prompt;
+  // })
 }
 
 function getPicture() {

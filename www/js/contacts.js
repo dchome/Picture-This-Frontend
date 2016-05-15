@@ -18,6 +18,3 @@ function onContactsSuccess(contacts){
 function onContactsFail(message) {
     alert("Failed because:" + message)
 }
-
-function displayContacts() {
-}

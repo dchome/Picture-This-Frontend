@@ -47,10 +47,9 @@ body {
     width: 135px;
 }
 
-button {
+.link-button {
     margin: 10px 0 10px 0;
 }
-
 
 .app {
     position:absolute;             /* position in the center of the screen */
@@ -87,13 +86,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -105,4 +104,13 @@ h1 {
 
 #contacts-list li {
     font-size: 14px;
+}
+
+#open-rounds-list {
+    list-style-type: none;
+}
+
+#open-rounds-list li {
+    list-style-type: none;
+    margin-left: -70px;
 }

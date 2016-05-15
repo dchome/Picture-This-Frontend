@@ -1,48 +1,59 @@
 $(document).ready(function(){
     //need a method to get user info here
-    var user = function(){
-        id = "",
-        firstName = "",
-        lastName = ""
-        //any other stuff
+    var args = {
+
+        openRounds: [],
+
+        closed_rounds: [],
+
+        roundIndex: null,
+
+        photoId: null,
+
+        contacts: null,
+
+        user : {
+            id: 1,
+
+            firstName: "",
+
+            lastName:""
+
+            //any other stuff
+        }
     }
-    var prompt = null;
 
-    var roundId = null;
-
-    var photoId = null;
-
-    var contacts = null;
-
-    loadOpenRoundsView(); 
+    loadOpenRoundsView(args);
 
     //goes to the prompt for an open round
-    $('#display').on('click', '#button-to-open-prompt', function() {
-        loadPromptView();
-        getExistingPrompt();
+    $('#display').on('click', '.open-round-link', function(event) {
+        $target = event.target
+        event.preventDefault();
+        args.roundIndex = parseInt($target.id)
+        loadPromptView(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
         event.preventDefault();
-        loadPromptView();
-        createRound();
+        loadPromptView(args);
+        createRound(args);
     })
 
     $('#display').on('click', '#button-to-contacts', function(event){
+        event.preventDefault();
         getContacts();
-        loadContactsView();
+        loadContactsView(args);
     })
 
-    $('#display').on('click', '#button-to-open-rounds', function() {
-        clearNonUserParams()
-        loadOpenRoundsView();
-        getOpenRounds();
+    $('#display').on('click', '#button-to-open-rounds', function(event) {
+        event.preventDefault();
+        loadOpenRoundsView(args);
     })
 
-    $('#display').on('click', '#button-to-closed-rounds', function() {
-        clearNonUserParams()
-        loadClosedRoundsView();
-        getClosedRounds();
+    $('#display').on('click', '#button-to-closed-rounds', function(event) {
+        event.preventDefault();
+        loadClosedRoundsView(args);
+        getClosedRounds(args);
     })
 
     $('#display').on('click', '#photo-button', function(event){
@@ -50,29 +61,33 @@ $(document).ready(function(){
     });
 })
 
-function clearNonUserParams(){
-    prompt = null;
-    roundId = null;
-    photoId = null;
-    contacts = null;
+function clearNonUserParams(args){
+    args.prompt = null;
+    args.roundId = null;
+    args.photoId = null;
+    args.contacts = null;
 }
 
-function loadOpenRoundsView(){
-    $('#display').load('html/open_rounds.html')
+function loadOpenRoundsView(args){
+    $('#display').load('html/open_rounds.html', function(){
+        getOpenRounds(args)
+    });
 }
 
 function loadContactsView(){
     $('#display').load('html/contacts.html')
 }
 
-function loadPromptView(){
-    $('#display').load('html/prompt.html')
+function loadPromptView(args){
+    $('#display').load('html/prompt.html', function(){
+        getExistingPrompt(args);
+    });
 }
 
-function loadClosedRoundsView(){
+function loadClosedRoundsView(args){
     $('#display').load('html/closed_rounds.html')
 }
 
-function loadPhotoView(){
+function loadPhotoView(args){
     $('#display').load('html/photo_show.html')
 }
