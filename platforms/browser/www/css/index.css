@@ -119,3 +119,13 @@ h1 {
     height: 100px;
     width: auto;
 }
+
+#photo-wrapper {
+    display: block;
+}
+
+#photo-show {
+    height: auto;
+    width: 200%;
+    margin-left: -50%;
+}

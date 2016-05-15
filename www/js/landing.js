@@ -10,7 +10,7 @@ $(document).ready(function(){
 
         deckId: null,
 
-        photoId: null,
+        photoSrc: null,
 
         contacts: [],
 
@@ -34,6 +34,17 @@ $(document).ready(function(){
         event.preventDefault();
         args.roundIndex = parseInt($target.id)
         args.roundId = args.closedRounds[args.roundIndex].round_id
+        loadGalleryView(args);
+    })
+
+    $('#display').on('click', '.gallery-photo', function(event) {
+        $target = event.target;
+        event.preventDefault();
+        args.photoSrc = $target.src
+        loadPhotoView(args);
+    })
+
+    $('#display').on('click', '#button-to-gallery', function(event) {
         loadGalleryView(args);
     })
 
@@ -130,5 +141,7 @@ function loadGalleryView(args){
 }
 
 function loadPhotoView(args){
-    $('#display').load('html/photo.html')
+    $('#display').load('html/photo.html', function(){
+        getPhoto(args)
+    });
 }
