@@ -4,7 +4,7 @@ $(document).ready(function(){
 
         openRounds: [],
 
-        closed_rounds: [],
+        closedRounds: [],
 
         roundIndex: null,
 
@@ -53,7 +53,6 @@ $(document).ready(function(){
     $('#display').on('click', '#button-to-closed-rounds', function(event) {
         event.preventDefault();
         loadClosedRoundsView(args);
-        getClosedRounds(args);
     })
 
     $('#display').on('click', '#photo-button', function(event){
@@ -85,7 +84,9 @@ function loadPromptView(args){
 }
 
 function loadClosedRoundsView(args){
-    $('#display').load('html/closed_rounds.html')
+$('#display').load('html/closed_rounds.html', function(){
+        getClosedRounds(args)
+    });
 }
 
 function loadPhotoView(args){
