@@ -1,5 +1,6 @@
 function getExistingPrompt(args){
     $('#prompt-body').html(args.openRounds[args.roundIndex].prompt)
+    $('#prompt-time').html(args.openRounds[args.roundIndex].end_time)
 }
 
 function createRound(){
