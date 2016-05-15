@@ -8,18 +8,14 @@ $(document).ready(function(){
 
         roundIndex: null,
 
+        deckId: null,
+
         photoId: null,
 
         contacts: null,
 
         user : {
-            id: 1,
-
-            firstName: "",
-
-            lastName:""
-
-            //any other stuff
+            id: 1
         }
     }
 
@@ -31,6 +27,13 @@ $(document).ready(function(){
         event.preventDefault();
         args.roundIndex = parseInt($target.id)
         loadPromptView(args);
+    })
+
+    $('#display').on('click', '.deck-link', function(event) {
+        $target = event.target
+        event.preventDefault();
+        args.deckId = parseInt($target.id) - 1
+        loadContactsView(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
@@ -53,6 +56,11 @@ $(document).ready(function(){
     $('#display').on('click', '#button-to-closed-rounds', function(event) {
         event.preventDefault();
         loadClosedRoundsView(args);
+    })
+
+    $('#display').on('click', '#button-to-decks', function(event) {
+        event.preventDefault();
+        loadDecksView(args);
     })
 
     $('#display').on('click', '#photo-button', function(event){
@@ -86,6 +94,12 @@ function loadPromptView(args){
 function loadClosedRoundsView(args){
 $('#display').load('html/closed_rounds.html', function(){
         getClosedRounds(args)
+    });
+}
+
+function loadDecksView(args){
+    $('#display').load('html/decks.html', function(){
+        getDecks(args)
     });
 }
 
