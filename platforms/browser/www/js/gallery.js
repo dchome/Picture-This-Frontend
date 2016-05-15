@@ -4,11 +4,11 @@ function getGallery(args){
   $.ajax({url: url, datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){
     for (var i = 0; i < response.participants.submitted.length; i++){
-      $('#gallery-list').append('<li>'+response.participants.submitted[i].first_name+':</li><br><img class="gallery-photo" src="'+response.participants.submitted[i].photo+'"/><br>')
+      $('#gallery-list').append('<li class="participant-name">'+response.participants.submitted[i].first_name+':</li><br><img class="gallery-photo" src="'+response.participants.submitted[i].photo+'"/><br>')
     }
-  $('#gallery-list').append('<li>Not yet submitted:</li>')
+  $('#gallery-list').append('<li class="header">Not yet submitted:</li>')
   for (var i = 0; i < response.participants.pending.length; i++){
-    $('#gallery-list').append('<li>'+response.participants.pending[i].first_name+'</li>')
+    $('#gallery-list').append('<li class="participant-name">'+response.participants.pending[i].first_name+'</li>')
   }
   }).fail(function(response){
     alert("Something is wrong.");

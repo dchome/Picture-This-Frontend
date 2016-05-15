@@ -25,14 +25,24 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    font-size:16px;
+    min-height: 600px;
     height:100%;
     margin:0px;
     padding:0px;
     width:100%;
+    background-color: #8FA8A2;
+    color: #50553F;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    ;
 }
 
 /* Portrait layout (default) */
+
+#display {
+    margin-top: 30%;
+    text-align: center;
+}
 
 #photospace-wrapper{
     height: 200px;
@@ -49,27 +59,6 @@ body {
 
 .link-button {
     margin: 10px 0 10px 0;
-}
-
-.app {
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
 }
 
 h1 {
@@ -98,23 +87,6 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-#contacts-list {
-    list-style-type: none;
-}
-
-#contacts-list li {
-    font-size: 14px;
-}
-
-#open-rounds-list {
-    list-style-type: none;
-}
-
-#open-rounds-list li {
-    list-style-type: none;
-    margin-left: -70px;
-}
-
 .gallery-photo {
     height: 100px;
     width: auto;
@@ -126,6 +98,68 @@ h1 {
 
 #photo-show {
     height: auto;
-    width: 200%;
-    margin-left: -50%;
+    width: 95%;
+}
+
+ul {
+    margin: 0 auto;
+    text-indent: none;
+    list-style-type: none;
+    padding: 0px;
+}
+
+li {
+    text-indent: none;
+    list-style-type: none;
+    background-color: #CCD4BD;
+    margin: 10px auto 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0px 5px 5px 0px;
+
+}
+
+.header {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.participant-name {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+input {
+    background-color: #CCD4BD;
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border-top: 3px solid #50553F;
+    border-left: 3px solid #50553F;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+}
+
+input[type=submit] {
+    color: #50553F;
+    background-color: #CCD4BD;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 5px 5px 0px;
+    margin: 10px;
+}
+
+button {
+    color: #50553F;
+    background-color: #CCD4BD;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 5px 5px 0px;
 }
