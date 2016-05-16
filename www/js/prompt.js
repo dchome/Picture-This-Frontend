@@ -15,7 +15,6 @@ function getPicture(args) {
 }
 
 function onPictureSuccess(args, imageURI) {
-    args.photo = imageURI);
     var options = new FileUploadOptions();
         options.fileKey="image";
         options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
