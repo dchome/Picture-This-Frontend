@@ -22,7 +22,7 @@ $(document).ready(function(){
         }
         return args;
     }).then(function(args){
-
+        bounceUnauthorizedUser(args);
         loadOpenRoundsView(args);
 
 
@@ -99,6 +99,12 @@ $(document).ready(function(){
 
 function getUserId(){
     $.ajax({url: 'http://www.picture-this-app.com/get_user_id' })
+}
+
+function bounceUnauthorizedUser(args){
+    if (args.user.id === null) {
+        document.location = "../index.html"
+    }
 }
 
 function clearNonUserParams(args){
