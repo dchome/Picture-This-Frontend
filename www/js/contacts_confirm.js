@@ -4,14 +4,31 @@ function getContactsToConfirm(args){
     }
 }
 
+function formatContacts(contacts){
+  var formatted = {}
+  for (var i=0; i< contacts.length; i++) {
+    formatted[contacts[i][0]] = formatPhone(contacts[i][1]);
+  }
+  return formatted;
+}
+
+function formatPhone(number){
+  var n = number.replace(/\D/g,'');
+  if (n[0] === "1"){
+    n.slice(1)
+  }
+  return n;
+}
 
 function createRound(args){
+  var formattedContacts = formatContacts(args.contacts)
   $.ajax({
     url: 'http://www.picture-this-app.com/rounds',
     method: 'POST',
+    dataType: "JSON",
     data: {
       id : args.user.id,
-      participants : args.contacts,
+      participants : formattedContacts,
       deck_id : args.deckId
     }
   }).done(function(response){
@@ -20,6 +37,7 @@ function createRound(args){
   //  prompt = response.round.prompt;
   //
   }).fail(function(response){
-    alert("fail")
+    alert("You still suck.")
   })
 }
+

@@ -18,13 +18,8 @@
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <access origin="*" />
-    <access origin="http://www.picture-this-app.com/*/*" />
-    <allow-intent href="http://www.picture-this-app.com/*/*" />
     <allow-intent href="*" />
     <allow-navigation href="*" />
-    <allow-navigation href="http://www.picture-this-app.com/*/*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />

@@ -51,7 +51,7 @@ $(document).ready(function(){
     $('#display').on('click', '.deck-link', function(event) {
         $target = event.target
         event.preventDefault();
-        args.deckId = parseInt($target.id) - 1
+        args.deckId = parseInt($target.id)
         loadContactsView(args);
     })
 
