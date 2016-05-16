@@ -14,8 +14,9 @@ function formatContacts(contacts){
 
 function formatPhone(number){
   var n = number.replace(/\D/g,'');
+  console.log(n)
   if (n[0] === "1"){
-    n.slice(1)
+   return n.slice(1)
   }
   return n;
 }
@@ -32,10 +33,9 @@ function createRound(args){
       deck_id : args.deckId
     }
   }).done(function(response){
-    alert("success")
-  //  roundId = response.round.id;
-  //  prompt = response.round.prompt;
-  //
+    args.openRounds.unshift(response.round)
+    args.roundIndex = 0
+    loadPromptView(args);
   }).fail(function(response){
     alert("You still suck.")
   })
