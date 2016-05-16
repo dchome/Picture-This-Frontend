@@ -1,6 +1,7 @@
 function getOpenRounds(args){
   $.ajax({url: 'http://www.picture-this-app.com/users/'+args.user.id+'/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){
+    alert(JSON.stringify(response))
     args.openRounds = response.open_rounds;
     args.submittedRounds = response.submitted_rounds;
     if (args.openRounds.length > 0){
@@ -16,6 +17,6 @@ function getOpenRounds(args){
       }
     }
   }).fail(function(response){
-    alert("Something is wrong.");
+    console.log(response);
   })
 }

@@ -1,5 +1,7 @@
 $(document).ready(function(){
     getUserId().then(function(response){
+        return bounceUnauthorizedUser(response.id);
+    }).then(function(id){
         var args = {
 
             openRounds: [],
@@ -18,11 +20,9 @@ $(document).ready(function(){
 
             contacts: [],
 
-            user : {id: parseInt(response.user_id)}
-        }
-        return args;
-    }).then(function(args){
-        bounceUnauthorizedUser(args);
+//            user : {id: parseInt(response.id)}
+            user: {id: 1}
+        alert("you are in the main space")
         loadOpenRoundsView(args);
 
 
@@ -98,12 +98,14 @@ $(document).ready(function(){
 })
 
 function getUserId(){
-    $.ajax({url: 'http://www.picture-this-app.com/get_user_id' })
+    return $.ajax({url: 'http://www.picture-this-app.com/get_user_id' })
 }
 
-function bounceUnauthorizedUser(args){
-    if (args.user.id === null) {
+function bounceUnauthorizedUser(id){
+    if (id === null) {
         document.location = "../index.html"
+    } else {
+        return id;
     }
 }
 
