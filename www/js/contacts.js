@@ -4,6 +4,7 @@ function getContacts(args) {
     // options.multiple = true;
     // filter = ["*"];
     // navigator.contacts.find(filter, onContactsSuccess, onContactsFail, options);
+    args.contacts = []
     var spoofContacts = [["Dan", "+1 (777) 777-7777"], ["Noah", "(602) 301-6624"], ["Theo", "(222) 765-4321"]];
     for (var i = 0; i < 3; i++) {
       $('#all-contacts-list').append('<label for="contacts-'+i+'">'+spoofContacts[i][0]+'</label><input type="checkbox" id="contacts-'+i+'" value="'+spoofContacts[i][1]+'"><br>');
