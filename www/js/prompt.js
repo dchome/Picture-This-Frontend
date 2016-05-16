@@ -36,8 +36,5 @@ function win(r) {
     }
 
 function fail(error) {
-    var message = ""
-    error.each(function(thing){message+=JSON.stringify(thing)})
-    alert("error:" + message );
-    console.log(error)
+    alert('fail')
 }
