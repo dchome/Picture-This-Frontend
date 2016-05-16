@@ -1,5 +1,5 @@
 function getOpenRounds(args){
-  $.ajax({url: 'http://www.picture-this-app.com/users/1/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
+  $.ajax({url: 'http://www.picture-this-app.com/users/'+args.user.id+'/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){
     args.openRounds = response.open_rounds;
     args.submittedRounds = response.submitted_rounds;

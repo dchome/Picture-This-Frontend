@@ -4,9 +4,6 @@ function getExistingPrompt(args){
     args.roundId = args.openRounds[args.roundIndex].round_id
 }
 
-function showExistingPhoto(args){
-    $('#photo-wrapper')
-}
 
 function getPicture(args) {
     navigator.camera.getPicture(onPictureSuccess.bind(null, args), fail, {
@@ -31,12 +28,10 @@ function onPictureSuccess(args, imageURI) {
 }
 
 function win(r) {
-    console.log("Code = " + r.responseCode);
-    console.log("Response = " + r.response);
-    console.log("Sent = " + r.bytesSent);
-    alert(r.response);
-    }
+    $('#photo-confirm-message').html("Your photo was successfully submitted!")
+    $('#photo-button').hide();
+}
 
 function fail(error) {
-    alert('fail')
+    $('#photo-confirm-message').html("Sorry, something went wrong. Please try again later.")
 }
