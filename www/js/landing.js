@@ -8,6 +8,8 @@ $(document).ready(function(){
 
         roundIndex: null,
 
+        roundId: null,
+
         deckId: null,
 
         photoSrc: null,
@@ -87,7 +89,7 @@ $(document).ready(function(){
     })
 
     $('#display').on('click', '#photo-button', function(event){
-        getPicture()//.then(sendPicture, onPictureFail);
+        getPicture(args);
     });
 })
 
