@@ -33,5 +33,5 @@ function win(r) {
 }
 
 function fail(error) {
-    $('#photo-confirm-message').html("Sorry, something went wrong. Please try again later.")
+    console.log(error)
 }
