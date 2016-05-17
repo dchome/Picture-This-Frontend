@@ -7,13 +7,14 @@ function getUserId(){
     }).done(function(response){
        checkAuthorization(response);
     }).fail(function(){
-        document.location = "../index.html";
+       // document.location = "../index.html";
         checkAuthorization();
     });
 }
 
 function checkAuthorization(response){
-    if (response.id === null) {
+    // if (response.id === null) {
+    if (1===2){
         document.location = "../index.html";
     } else {
          var args = {
@@ -25,7 +26,7 @@ function checkAuthorization(response){
             deckId: null,
             photoSrc: null,
             contacts: [],
-            user : {id: parseInt(response.id), firstName: response.first_name}
+            // user : {id: parseInt(response.id), firstName: response.first_name}
             user: {id: 1, firstName: "Dan"}
         }
         loadLanding(args)
@@ -33,16 +34,16 @@ function checkAuthorization(response){
 }
 
 function loadLanding(args) {
+    $('#logout-button').on('click', function(){
+        $.ajax({
+            url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
+            type: 'DELETE'
+        }).done(function() {
+            document.location = "../index.html"})
+    })
     loadOpenRoundsView(args);
 
 
-    $('body').on('click', '#logout-button', function(){
-        alert("here: " args.user.id)
-        $.ajax({
-            url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
-            type: 'DELETE',
-        }).done(function() {document.location = "../index.html"})
-    })
 
     //goes to the prompt for an open round
     $('#display').on('click', '.open-round-link', function(event) {
@@ -112,14 +113,6 @@ function loadLanding(args) {
     $('#display').on('click', '#photo-button', function(event){
         getPicture(args);
     });
-}
-
-
-function clearNonUserParams(args){
-    args.prompt = null;
-    args.roundId = null;
-    args.photoId = null;
-    args.contacts = null;
 }
 
 function loadOpenRoundsView(args){
