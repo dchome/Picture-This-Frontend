@@ -1,7 +1,7 @@
 function getExistingPrompt(args){
-    $('#prompt-body').html(args.openRounds[args.roundIndex].prompt)
-    $('#prompt-time').html(args.openRounds[args.roundIndex].end_time)
-    args.roundId = args.openRounds[args.roundIndex].round_id
+    $('#prompt-body').html(args.pendingRounds[args.roundIndex].prompt)
+    $('#prompt-time').html(args.pendingRounds[args.roundIndex].end_time)
+    args.roundId = args.pendingRounds[args.roundIndex].round_id
 }
 
 
