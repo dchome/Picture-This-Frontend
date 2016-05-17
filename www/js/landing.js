@@ -12,8 +12,7 @@ function getUserId(){
 }
 
 function checkAuthorization(response){
-    //if (response.id === "nil") {
-    if (1===2) {
+    if (response.id === null) {
         document.location = "../index.html";
     } else {
          var args = {
@@ -25,8 +24,7 @@ function checkAuthorization(response){
             deckId: null,
             photoSrc: null,
             contacts: [],
-//          user : {id: parseInt(response.id)}
-            user: {id: 2}
+        user : {id: parseInt(response.id), firstName: response.first_name}
         }
         loadLanding(args)
     }

@@ -15,6 +15,7 @@ function getOpenRounds(args){
         $('#submitted-rounds-list').append('<li class="submitted-round-link" id="'+i+'">Created By: '+args.submittedRounds[i].creator_first_name+' - ' + formatTime(args.submittedRounds[i].end_time, 'open') + ' - '+args.submittedRounds[i].prompt+'</li>')
       }
     }
+    $('#welcome-message').append(args.user.firstName)
   }).fail(function(response){
     console.log(response);
   })
