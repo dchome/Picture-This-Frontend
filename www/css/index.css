@@ -25,13 +25,13 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:16px;
+    font-size:20px;
     height:100%;
     margin:0px;
     padding:0px;
     width:100%;
-    background-color: #8FA8A2;
-    color: #50553F;
+    background-color: #2E294E;
+    color: #FFD400;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     ;
 }
@@ -63,7 +63,7 @@ body {
 h1 {
     font-size:24px;
     font-weight:normal;
-    margin:0px;
+    margin:5px;
     overflow:visible;
     padding:0px;
     text-align:center;
@@ -101,16 +101,17 @@ h1 {
 }
 
 ul {
-    margin: 0 auto;
+    margin: 15px auto 15px auto;
     text-indent: none;
     list-style-type: none;
+
     padding: 0px;
 }
 
 li {
     text-indent: none;
     list-style-type: none;
-    background-color: #CCD4BD;
+    background-color: #541388;
     margin: 10px auto 10px auto;
     padding: 5px;
     border-radius: 5px;
@@ -131,7 +132,7 @@ li {
 }
 
 input {
-    background-color: #CCD4BD;
+    background-color: #F1E9DA;
     padding: 10px;
     margin: 5px;
     font-size: 16px;
@@ -144,7 +145,7 @@ input {
 
 input[type=submit] {
     color: #50553F;
-    background-color: #CCD4BD;
+    background-color: #F1E9DA;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
@@ -155,15 +156,24 @@ input[type=submit] {
 
 button {
     color: #50553F;
-    background-color: #CCD4BD;
-    padding: 10px;
-    font-size: 16px;
+    background-color: #F1E9DA;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 20px;
     border-radius: 5px;
     border: none;
     box-shadow: 0px 5px 5px 0px;
 }
 
+#button-to-decks {
+    background-color: green;
+    color: #F1E9DA;
+}
+
+#logout-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 #logout-button {
-    margin-top: 20%;
-    margin-left: 10%;
 }

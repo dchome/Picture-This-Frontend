@@ -1,5 +1,5 @@
 function getGallery(args){
-  $('#gallery-prompt').append(args.closedRounds[args.roundIndex].prompt);
+  $('#gallery-prompt').html(args.closedRounds[args.roundIndex].prompt);
   var url = 'http://www.picture-this-app.com/rounds/'+args.roundId+'/photos'
   $.ajax({url: url, datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){

@@ -37,7 +37,7 @@ function attemptToLogIn(){
     document.location = 'landing.html'
   }).fail(function(response){
     form[0].reset()
-    $('#errors').append(JSON.stringify(response))
+    $('#errors').html("Incorrect email or password.")
   })
 }
 
