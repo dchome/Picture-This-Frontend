@@ -1,4 +1,4 @@
-function getContacts() {
+function getContacts(args) {
     var options = new ContactFindOptions();
     options.filter = "";
     options.multiple = true;
@@ -7,14 +7,19 @@ function getContacts() {
 }
 
 function onContactsSuccess(contacts){
-  alert("You have "+contacts.length+" contacts.")
-  for (var i = 1; i < contacts.length; i++) {
-    $('#contacts-list').append(
-      '<input type="checkbox" name="contacts[]" value="'+[contacts[i].name.formatted, contacts[i].phoneNumbers[0].value]+'/>'+contacts[i].name.formatted+'<br>'
-      );
-  }
+    for (var i = 1; i < contacts.length; i++) {
+      $('#all-contacts-list').append('<label for="contacts-'+i+'">'+contacts[i].name.formatted+'</label><input type="checkbox" id="contacts-'+i+'" value="'+contacts[i].phoneNumbers[0].value+'"><br>');
+    }
+    $('#all-contacts-list').append('<input type="submit" id="button-to-contacts-confirm" value="Select">')
 }
 
 function onContactsFail(message) {
     alert("Failed because:" + message)
+}
+
+function assignContacts(args){
+  args.contacts = []
+  $('#all-contacts-list :checked').each(function(){
+    args.contacts.push([$("label[for='"+this.id+"']").html(), this.value])
+  })
 }

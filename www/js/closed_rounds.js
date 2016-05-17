@@ -1,16 +1,11 @@
 function getClosedRounds(args){
-  //   $.ajax({url: 'http://www.picture-this-app.com/users/1/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
-  // }).done(function(response){
-  //     //add parse logic, probably
-  //   args.open_rounds = response;
-  //   alert(response);
-  //   // for (var i = 0; i < args.rounds.length; i++) {
-  //   //   $('#open-rounds-list').append(
-  //   //     '<li><ul><li>Created By:'+args.rounds[i].creator_name+' - '+args.rounds[i].time_remaining+' - <button id="open-round-'+i+'" type="button">Go to Prompt</button></ul></li>'
-  //     // )
-  //   // }
-  //   //
-  // }).fail(function(response){
-  //   alert("Something is wrong.");
-  // })
+$.ajax({url: 'http://www.picture-this-app.com/users/1', datatype: "JSONP", jsonp: 'jsoncallback'
+  }).done(function(response){
+    args.closedRounds = response.rounds
+    for (var i = 0; i < args.closedRounds.length; i++){
+      $('#closed-rounds-list').append('<li class="gallery-link" id="'+i+'">Created By: '+args.closedRounds[i].creator_first_name+' - '+args.closedRounds[i].end_time+' - '+args.closedRounds[i].prompt+'</li>')
+    }
+  }).fail(function(response){
+    alert("Something is wrong.");
+  })
 }
