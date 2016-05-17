@@ -77,6 +77,7 @@ function loadLanding(args) {
         event.preventDefault();
         args.deckId = parseInt($target.id)
         loadContactsView(args);
+        // loadConfirmContactsView(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
