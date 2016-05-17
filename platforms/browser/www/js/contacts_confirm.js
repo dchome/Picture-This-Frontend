@@ -5,7 +5,7 @@ function getContactsToConfirm(args){
 }
 
 function contactNumbers(contacts){
-  return contacts.map(function(contact){return contact[1]})
+  return contacts.map(function(contact){return formatPhone(contact[1])})
 }
 
 function formatPhone(number){
@@ -13,26 +13,28 @@ function formatPhone(number){
   console.log(n)
   if (n[0] === "1"){
    return n.slice(1)
+  } else {
+    return n;
   }
-  return n;
 }
 
 function createRound(args){
-  var contactNumbers = contactNumbers(args.contacts)
+  var contactNums = contactNumbers(args.contacts)
   $.ajax({
     url: 'http://www.picture-this-app.com/rounds',
     method: 'POST',
     dataType: "JSON",
     data: {
       id : args.user.id,
-      contact_numbers : contactNumbers,
+      contact_numbers : contactNums,
       deck_id : args.deckId
     }
   }).done(function(response){
-    args.openRounds.unshift(response.round)
+    args.pendingRounds.unshift(response.round)
     args.roundIndex = 0
     loadPromptView(args);
   }).fail(function(response){
+    console.log(response)
     alert("You still suck.")
   })
 }
