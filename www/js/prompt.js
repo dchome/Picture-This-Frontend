@@ -18,7 +18,7 @@ function onPictureSuccess(args, imageURI) {
         options.mimeType="image/jpeg";
 
     var params = new Object();
-        params.user_id = "1";
+        params.user_id = args.user.id;
         params.round_id = args.roundId;
     options.params = params;
     options.chunkedMode = false;
