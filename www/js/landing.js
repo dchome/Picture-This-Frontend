@@ -8,6 +8,7 @@ function getUserId(){
        checkAuthorization(response);
     }).fail(function(){
         document.location = "../index.html";
+        checkAuthorization();
     });
 }
 
@@ -24,7 +25,8 @@ function checkAuthorization(response){
             deckId: null,
             photoSrc: null,
             contacts: [],
-        user : {id: parseInt(response.id), firstName: response.first_name}
+            user : {id: parseInt(response.id), firstName: response.first_name}
+            user: {id: 1, firstName: "Dan"}
         }
         loadLanding(args)
     }
@@ -33,6 +35,14 @@ function checkAuthorization(response){
 function loadLanding(args) {
     loadOpenRoundsView(args);
 
+
+    $('body').on('click', '#logout-button', function(){
+        alert("here: " args.user.id)
+        $.ajax({
+            url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
+            type: 'DELETE',
+        }).done(function() {document.location = "../index.html"})
+    })
 
     //goes to the prompt for an open round
     $('#display').on('click', '.open-round-link', function(event) {
