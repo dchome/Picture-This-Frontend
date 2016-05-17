@@ -8,7 +8,7 @@ function getExistingPrompt(args){
 function getPicture(args) {
     navigator.camera.getPicture(onPictureSuccess.bind(null, args), fail, {
         destinationType: Camera.DestinationType.FILE_URI,
-        allowEdit: false });
+        allowEdit: true });
 }
 
 function onPictureSuccess(args, imageURI) {
