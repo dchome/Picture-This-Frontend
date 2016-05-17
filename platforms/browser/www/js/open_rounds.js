@@ -1,13 +1,12 @@
 function getOpenRounds(args){
   $.ajax({url: 'http://www.picture-this-app.com/users/'+args.user.id+'/rounds', datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){
-    alert(JSON.stringify(response))
-    args.openRounds = response.open_rounds;
+    args.pendingRounds = response.pending_rounds;
     args.submittedRounds = response.submitted_rounds;
-    if (args.openRounds.length > 0){
+    if (args.pendingRounds.length > 0){
         $('#open-rounds-list-wrapper').append('<h1>You have not yet submitted a picture for:</h1><ul id="open-rounds-list"></ul>')
-      for (var i = 0; i < args.openRounds.length; i++){
-        $('#open-rounds-list').append('<li class="open-round-link" id="'+i+'">Created By: '+args.openRounds[i].creator_first_name+' - '+args.openRounds[i].end_time+' - '+args.openRounds[i].prompt+'</li>')
+      for (var i = 0; i < args.pendingRounds.length; i++){
+        $('#open-rounds-list').append('<li class="open-round-link" id="'+i+'">Created By: '+args.pendingRounds[i].creator_first_name+' - '+args.pendingRounds[i].end_time+' - '+args.pendingRounds[i].prompt+'</li>')
       }
     }
     if (args.submittedRounds.length > 0){

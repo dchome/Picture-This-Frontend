@@ -1,113 +1,111 @@
 $(document).ready(function(){
-    getUserId().then(function(response){
-        return bounceUnauthorizedUser(response.id);
-    }).then(function(id){
-        var args = {
-
-            openRounds: [],
-
-            submittedRounds: [],
-
-            closedRounds: [],
-
-            roundIndex: null,
-
-            roundId: null,
-
-            deckId: null,
-
-            photoSrc: null,
-
-            contacts: [],
-
-//            user : {id: parseInt(response.id)}
-            user: {id: 1}
-        alert("you are in the main space")
-        loadOpenRoundsView(args);
-
-
-        //goes to the prompt for an open round
-        $('#display').on('click', '.open-round-link', function(event) {
-            $target = event.target
-            event.preventDefault();
-            args.roundIndex = parseInt($target.id)
-            loadPromptView(args);
-        })
-
-        $('#display').on('click', '.gallery-link', function(event) {
-            $target = event.target;
-            event.preventDefault();
-            args.roundIndex = parseInt($target.id)
-            args.roundId = args.closedRounds[args.roundIndex].round_id
-            loadGalleryView(args);
-        })
-
-        $('#display').on('click', '.gallery-photo', function(event) {
-            $target = event.target;
-            event.preventDefault();
-            args.photoSrc = $target.src
-            loadPhotoView(args);
-        })
-
-        $('#display').on('click', '#button-to-gallery', function(event) {
-            loadGalleryView(args);
-        })
-
-        $('#display').on('click', '.deck-link', function(event) {
-            $target = event.target
-            event.preventDefault();
-            args.deckId = parseInt($target.id)
-            loadContactsView(args);
-        })
-
-        $('#display').on('click', '#button-to-new-prompt', function(event) {
-            event.preventDefault();
-            createRound(args);
-        })
-
-        $('#display').on('click', '#button-to-contacts', function(event){
-            event.preventDefault();
-            loadContactsView(args);
-        })
-
-        $('#display').on('click', '#button-to-contacts-confirm', function(event){
-            event.preventDefault();
-            assignContacts(args);
-            loadConfirmContactsView(args);
-        })
-
-        $('#display').on('click', '#button-to-open-rounds', function(event) {
-            event.preventDefault();
-            loadOpenRoundsView(args);
-        })
-
-        $('#display').on('click', '#button-to-closed-rounds', function(event) {
-            event.preventDefault();
-            loadClosedRoundsView(args);
-        })
-
-        $('#display').on('click', '#button-to-decks', function(event) {
-            event.preventDefault();
-            loadDecksView(args);
-        })
-
-        $('#display').on('click', '#photo-button', function(event){
-            getPicture(args);
-        });
-    });
+    getUserId()
 })
 
 function getUserId(){
-    return $.ajax({url: 'http://www.picture-this-app.com/get_user_id' })
+    $.ajax({url:'http://www.picture-this-app.com/get_user_id'
+    }).done(function(response){
+       checkAuthorization(response);
+    }).fail(function(){
+        document.location = "../index.html";
+    });
 }
 
-function bounceUnauthorizedUser(id){
-    if (id === null) {
-        document.location = "../index.html"
+function checkAuthorization(response){
+    //if (response.id === "nil") {
+    if (1===2) {
+        document.location = "../index.html";
     } else {
-        return id;
+         var args = {
+            pendingRounds: [],
+            submittedRounds: [],
+            closedRounds: [],
+            roundIndex: null,
+            roundId: null,
+            deckId: null,
+            photoSrc: null,
+            contacts: [],
+//          user : {id: parseInt(response.id)}
+            user: {id: 2}
+        }
+        loadLanding(args)
     }
 }
+
+function loadLanding(args) {
+    loadOpenRoundsView(args);
+
+
+    //goes to the prompt for an open round
+    $('#display').on('click', '.open-round-link', function(event) {
+        $target = event.target
+        event.preventDefault();
+        args.roundIndex = parseInt($target.id)
+        loadPromptView(args);
+    })
+
+    $('#display').on('click', '.gallery-link', function(event) {
+        $target = event.target;
+        event.preventDefault();
+        args.roundIndex = parseInt($target.id)
+        args.roundId = args.closedRounds[args.roundIndex].round_id
+        loadGalleryView(args);
+    })
+
+    $('#display').on('click', '.gallery-photo', function(event) {
+        $target = event.target;
+        event.preventDefault();
+        args.photoSrc = $target.src
+        loadPhotoView(args);
+    })
+
+    $('#display').on('click', '#button-to-gallery', function(event) {
+        loadGalleryView(args);
+    })
+
+    $('#display').on('click', '.deck-link', function(event) {
+        $target = event.target
+        event.preventDefault();
+        args.deckId = parseInt($target.id)
+        loadContactsView(args);
+    })
+
+    $('#display').on('click', '#button-to-new-prompt', function(event) {
+        event.preventDefault();
+        createRound(args);
+    })
+
+    $('#display').on('click', '#button-to-contacts', function(event){
+        event.preventDefault();
+        loadContactsView(args);
+    })
+
+    $('#display').on('click', '#button-to-contacts-confirm', function(event){
+        event.preventDefault();
+        assignContacts(args);
+        loadConfirmContactsView(args);
+    })
+
+    $('#display').on('click', '#button-to-open-rounds', function(event) {
+        event.preventDefault();
+        loadOpenRoundsView(args);
+    })
+
+    $('#display').on('click', '#button-to-closed-rounds', function(event) {
+        event.preventDefault();
+        loadClosedRoundsView(args);
+    })
+
+    $('#display').on('click', '#button-to-decks', function(event) {
+        event.preventDefault();
+        loadDecksView(args);
+    })
+
+    $('#display').on('click', '#photo-button', function(event){
+        getPicture(args);
+    });
+}
+
 
 function clearNonUserParams(args){
     args.prompt = null;

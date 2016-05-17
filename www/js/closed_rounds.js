@@ -1,5 +1,5 @@
 function getClosedRounds(args){
-$.ajax({url: 'http://www.picture-this-app.com/users/1', datatype: "JSONP", jsonp: 'jsoncallback'
+$.ajax({url: 'http://www.picture-this-app.com/users/'+args.user.id, datatype: "JSONP", jsonp: 'jsoncallback'
   }).done(function(response){
     args.closedRounds = response.rounds
     for (var i = 0; i < args.closedRounds.length; i++){
