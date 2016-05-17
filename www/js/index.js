@@ -12,7 +12,6 @@ $(document).ready(function(){
   $('#display').on('click', '#register-submit', function(event) {
     event.preventDefault();
     attemptToRegister();
-    test()
   });
 
   $('#display').on('click', '#button-to-login', function(event) {
@@ -51,6 +50,7 @@ function attemptToRegister(){
   }).done(function(response){
     document.location = 'landing.html'
   }).fail(function(response){
+    alert("you failed: " + JSON.stringify(response))
     form[0].reset()
   })
 }
