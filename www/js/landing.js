@@ -7,15 +7,15 @@ function getUserId(){
     }).done(function(response){
        checkAuthorization(response);
     }).fail(function(){
-       // document.location = "../index.html";
-        checkAuthorization();
+       document.location = "index.html";
+        // checkAuthorization();
     });
 }
 
 function checkAuthorization(response){
-    // if (response.id === null) {
-    if (1===2){
-        document.location = "../index.html";
+    if (response.id === null) {
+    // if (1===2){
+        document.location = "index.html";
     } else {
          var args = {
             pendingRounds: [],
@@ -26,8 +26,8 @@ function checkAuthorization(response){
             deckId: null,
             photoSrc: null,
             contacts: [],
-            // user : {id: parseInt(response.id), firstName: response.first_name}
-            user: {id: 1, firstName: "Dan"}
+            user : {id: parseInt(response.id), firstName: response.first_name}
+            // user: {id: 1, firstName: "Dan"}
         }
         loadLanding(args)
     }
@@ -39,8 +39,12 @@ function loadLanding(args) {
             url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
             type: 'DELETE'
         }).done(function() {
-            document.location = "../index.html"})
+            document.location = "index.html";
+        }).fail(function(){
+            alert("you fail")
+        });
     })
+
     loadOpenRoundsView(args);
 
 
@@ -77,7 +81,6 @@ function loadLanding(args) {
         event.preventDefault();
         args.deckId = parseInt($target.id)
         loadContactsView(args);
-        // loadConfirmContactsView(args);
     })
 
     $('#display').on('click', '#button-to-new-prompt', function(event) {
