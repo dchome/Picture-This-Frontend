@@ -30,9 +30,8 @@ function createRound(args){
       deck_id : args.deckId
     }
   }).done(function(response){
-    args.openRounds.unshift(response.round)
+    args.pendingRounds.unshift(response.round)
     args.roundIndex = 0
-    alert("you made it here")
     loadPromptView(args);
   }).fail(function(response){
     console.log(response)
