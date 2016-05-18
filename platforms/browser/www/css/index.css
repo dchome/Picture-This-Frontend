@@ -60,12 +60,22 @@ body {
     margin: 10px 0 10px 0;
 }
 
+p {
+  font-weight: bold;
+}
+
+#no-rounds {
+  margin-top: 25px;
+  color: #F2EFDA;
+}
+
 h1 {
     font-size:24px;
     margin:10px;
     overflow:visible;
     padding:0px;
     text-align:center;
+
 }
 
 @keyframes fade {
@@ -112,7 +122,7 @@ li {
     list-style-type: none;
     background-color: #541388;
     margin: 10px auto 10px auto;
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
     width: 80%;
     text-align: center;
@@ -125,9 +135,10 @@ li {
     box-shadow: none;
 }
 
-.participant-name {
+.participant-name, .submitted-round-link, .contacts-confirm {
     background-color: transparent;
     box-shadow: none;
+    border-top: 1px solid #FFD400;
 }
 
 input {
@@ -135,7 +146,7 @@ input {
     padding: 10px;
     margin: 5px;
     font-size: 16px;
-    height: 30px;
+    height: 26px;
     border-radius: 5px;
     border-top: 3px solid #50553F;
     border-left: 3px solid #50553F;
@@ -149,26 +160,37 @@ input[type="submit"] {
     background-color: #541388;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     box-shadow: 0px 5px 5px 0px;
     margin: 10px;
 }
 
-#login-button {
+#login-button, #register-submit, #button-to-contacts-confirm {
   -webkit-appearance: none;
   width: 60%;
   height: 60px;
   margin: 20px 0px 20px 0px;
   font-size: 20px;
+  font-weight: bold;
 }
 
-#register-link {
+#button-to-contacts-confirm {
+  background-color: green;
+  color: #F2EFDA;
+}
+
+#register-link, #button-to-login, #logout-button, .back {
   width: 40%;
   height: 45px;
   margin: 0px;
   font-size: 20px;
   line-height: 15px;
+}
+
+.back {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 button {
@@ -184,9 +206,39 @@ button {
     box-shadow: 0px 5px 5px 0px;
 }
 
+#photo-button, #button-to-new-prompt {
+  background-color: green;
+  color: #F1E9DA;
+  font-weight: bold;
+}
+
 #button-to-decks {
     background-color: green;
     color: #F1E9DA;
+    width: 38.75%;
+    margin: 5% 10% 5% 1.25%;
+    float: left;
+    line-height: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.left {
+  width: 38.75%;
+  margin: 5% 1.25% 5% 10%;
+  float: left;
+  line-height: 20px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.right {
+  width: 38.75%;
+  margin: 5% 10% 5% 1.25%;
+  float: left;
+  line-height: 20px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 #logout-wrapper {
