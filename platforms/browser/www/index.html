@@ -18,6 +18,7 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/logo.css" />
     <title>Picture This: Log In</title>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous">
     </script>
@@ -25,8 +26,14 @@
 </head>
 
 <body>
+
+  <div style='text-align: center;'>
+    <div class="top-bar">
+      <img src='icon.png' class='logo'/>
+    </div>
+  </div>
     <div id="display">
-        <h1>Picture This</h1>
+      
         <div id="errors"></div>
 
         <form id="login-form" action="http://www.picture-this-app.com/sessions" method="post">
