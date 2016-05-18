@@ -8,10 +8,13 @@ function getOpenRounds(args){
 
     if (args.pendingRounds.length > 0){
       $('#open-rounds-list-wrapper').append('<h1>You have not yet submitted a picture for:</h1><ul id="open-rounds-list"></ul>')
-      args.pendingRounds.map(function(round){
-        var dateTime = formatTime(round.end_time, "open")
-        $('#open-rounds-list').append("<li class='open-round-link' id='"+i+"'> <div>Prompt: "+round.prompt+" </div> <div> Created By: " + round.creator_first_name + " </div> <div>Ends on "+dateTime[0]+" at "+dateTime[1]+" </div> </li>")
-      });
+      for (var i = 0; i < args.pendingRounds.length; i++){
+        $('#open-rounds-list').append('<li class="open-round-link" id="'+i+'">Created By: '+args.pendingRounds[i].creator_first_name+' - ' + formatTime(args.pendingRounds[i].end_time, 'open') + ' - '+args.pendingRounds[i].prompt+'</li>')
+      }
+      // args.pendingRounds.map(function(round){
+      //   var dateTime = formatTime(round.end_time, "open")
+      //   $('#open-rounds-list').append("<li class='open-round-link' id='"+i+"'> <div>Prompt: "+round.prompt+" </div> <div> Created By: " + round.creator_first_name + " </div> <div>Ends on "+dateTime[0]+" at "+dateTime[1]+" </div> </li>")
+      // });
     }
 
     if (args.submittedRounds.length > 0){
