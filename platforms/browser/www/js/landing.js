@@ -34,20 +34,20 @@ function checkAuthorization(response){
 }
 
 function loadLanding(args) {
-    $('#logout-button').on('click', function(){
-        $.ajax({
-            url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
-            type: 'DELETE'
-        }).done(function() {
-            document.location = "index.html";
-        }).fail(function(response){
-            console.log(response)
-        });
-    })
 
     loadOpenRoundsView(args);
 
 
+    $('#logout-button').on('click', function(){
+      $.ajax({
+        url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
+        type: 'DELETE'
+      }).done(function() {
+        document.location = "index.html";
+      }).fail(function(response){
+        console.log(response)
+      });
+    })
 
     //goes to the prompt for an open round
     $('#display').on('click', '.open-round-link', function(event) {
