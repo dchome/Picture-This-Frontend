@@ -38,7 +38,7 @@ function loadLanding(args) {
     loadOpenRoundsView(args);
 
 
-    $('#logout-button').on('click', function(){
+    $('#display').on('click', '#logout-button', function(){
       $.ajax({
         url: 'http://www.picture-this-app.com/sessions/'+ args.user.id,
         type: 'DELETE'

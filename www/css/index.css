@@ -145,8 +145,8 @@ input {
 
 input[type="submit"] {
     -webkit-appearance: none;
-    color: #50553F;
-    background-color: #F1E9DA;
+    color: #FFD400;
+    background-color: #541388;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
@@ -166,13 +166,14 @@ input[type="submit"] {
 #register-link {
   width: 40%;
   height: 45px;
-  margin: 160px 0px 20px 0px;
+  margin: 0px;
   font-size: 20px;
+  line-height: 15px;
 }
 
 button {
-    color: #50553F;
-    background-color: #F1E9DA;
+    color: #FFD400;
+    background-color: #541388;
     box-sizing: border-box;
     width: 80%;
     height: 60px;
@@ -197,10 +198,6 @@ button {
   display: block;
   margin: 30px;
   border-bottom: 1px solid #FFD400;
-}
-
-#all-contacts-list {
-
 }
 
 .contact-checkbox {

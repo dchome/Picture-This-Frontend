@@ -20,7 +20,7 @@ function getOpenRounds(args){
     if (args.submittedRounds.length > 0){
       $('#submitted-rounds-list-wrapper').append('<h1>You have submitted a picture for these open rounds:</h1><ul id="submitted-rounds-list"></ul>')
       for (var i = 0; i < args.submittedRounds.length; i++){
-        $('#submitted-rounds-list').append('<li class="open-round-link" id="'+i+'">'+args.submittedRounds[i].prompt+'<br>Ends: '+formatTime(args.submittedRounds[i].end_time, 'open')+'<br>Created By: '+args.submittedRounds[i].creator_first_name+'</li>')
+        $('#submitted-rounds-list').append('<li class="submitted-round-link" id="'+i+'">'+args.submittedRounds[i].prompt+'<br>Ends: '+formatTime(args.submittedRounds[i].end_time, 'open')+'<br>Created By: '+args.submittedRounds[i].creator_first_name+'</li>')
       }
     }
 
