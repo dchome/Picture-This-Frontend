@@ -40,8 +40,8 @@ function loadLanding(args) {
             type: 'DELETE'
         }).done(function() {
             document.location = "index.html";
-        }).fail(function(){
-            alert("you fail")
+        }).fail(function(response){
+            console.log(response)
         });
     })
 

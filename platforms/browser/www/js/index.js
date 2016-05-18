@@ -50,7 +50,6 @@ function attemptToRegister(){
   }).done(function(response){
     document.location = 'landing.html'
   }).fail(function(response){
-    alert("you failed: " + JSON.stringify(response))
-    form[0].reset()
+    $('#errors').html("Incomplete or faulty information. Please try again.")
   })
 }

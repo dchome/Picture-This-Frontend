@@ -39,7 +39,7 @@ body {
 /* Portrait layout (default) */
 
 #display {
-    margin-top: 30%;
+    margin-top: 10%;
     text-align: center;
 }
 
@@ -81,8 +81,8 @@ h1 {
 }
 
 .blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+    animation:fade 2000ms infinite;
+    -webkit-animation:fade 2000ms infinite;
 }
 
 .gallery-photo {
@@ -142,7 +142,8 @@ input {
     border-right: 3px solid white;
 }
 
-input[type=submit] {
+input[type="submit"] {
+    -webkit-appearance: none;
     color: #50553F;
     background-color: #F1E9DA;
     padding: 10px;
@@ -174,5 +175,37 @@ button {
     margin-bottom: 20px;
 }
 
-#logout-button {
+.contact-listing {
+  display: block;
+  margin: 30px;
+  border-bottom: 1px solid #FFD400;
+}
+
+#all-contacts-list {
+
+}
+
+.contact-checkbox {
+    position: absolute;
+    right: 10%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #541388;
+    border-top: 3px solid #541388;
+    border-left: 3px solid #541388;
+}
+
+.label-for-contact {
+    position: absolute;
+    left: 10%;
+    margin-top: 25px;
+    font-size: 26px;
+}
+
+#contact-button-wrapper {
+  width: 80%;
+  border-top: 1px solid #FFD400;
+  margin-top: 30px;
+  margin-left: 10%;
 }
