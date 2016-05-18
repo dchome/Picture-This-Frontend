@@ -31,6 +31,7 @@ function onPictureSuccess(args, imageURI) {
 function win(r) {
     $('#photo-confirm-message').html("Your photo was<br>successfully submitted!<br><br>Come back when the round ends<br> to see everyone's photos!")
     $('#photo-button').hide();
+    $('#prompt-time').hide();
 }
 
 function fail(error) {
