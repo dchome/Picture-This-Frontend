@@ -25,7 +25,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-size:20px;
+    font-size:18px;
     height:100%;
     margin:0px;
     padding:0px;
@@ -192,8 +192,14 @@ button {
     padding: 20px;
     border-radius: 30px;
     background-color: #541388;
-    border-top: 3px solid #541388;
-    border-left: 3px solid #541388;
+    border: none;
+
+}
+
+.contact-checkbox:checked {
+  background-color: #D90368;
+  content: '';
+  background: linear-gradient(top, #D90368 0%, #541388 100%);
 }
 
 .label-for-contact {
