@@ -8,9 +8,9 @@ function getContacts(args) {
 
 function onContactsSuccess(contacts){
     for (var i = 1; i < contacts.length; i++) {
-      $('#all-contacts-list').append('<label for="contacts-'+i+'">'+contacts[i].name.formatted+'</label><input type="checkbox" id="contacts-'+i+'" value="'+contacts[i].phoneNumbers[0].value+'"><br>');
+      $('#all-contacts-list').append('<div class="contact-listing"><label class="label-for-contact" for="contacts-'+i+'">'+contacts[i].name.formatted+'</label><input type="checkbox" class="contact-checkbox" id="contacts-'+i+'" value="'+contacts[i].phoneNumbers[0].value+'"></div><br>');
     }
-    $('#all-contacts-list').append('<input type="submit" id="button-to-contacts-confirm" value="Select">')
+    $('#all-contacts-list').append('<div id="contact-button-wrapper"><input type="submit" id="button-to-contacts-confirm" value="Select"></div>')
 }
 
 function onContactsFail(message) {
