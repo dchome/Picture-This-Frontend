@@ -60,8 +60,9 @@ body {
     margin: 10px 0 10px 0;
 }
 
-p {
+p, h3 {
   font-weight: bold;
+  color: #F2EFDA;
 }
 
 #no-rounds {
@@ -126,8 +127,6 @@ li {
     border-radius: 5px;
     width: 80%;
     text-align: center;
-    box-shadow: 0px 5px 5px 0px;
-
 }
 
 .header {
@@ -162,7 +161,6 @@ input[type="submit"] {
     font-size: 16px;
     border-radius: 10px;
     border: none;
-    box-shadow: 0px 5px 5px 0px;
     margin: 10px;
 }
 
@@ -173,6 +171,11 @@ input[type="submit"] {
   margin: 20px 0px 20px 0px;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 20px;
+  border-left: 2px solid #FFD400;
+  border-top: 2px solid #FFD400;
+  border-right: 2px solid #806600;
+  border-bottom: 2px solid #806600;
 }
 
 #button-to-contacts-confirm {
@@ -201,15 +204,21 @@ button {
     height: 60px;
     padding: 15px;
     font-size: 20px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0px 5px 5px 0px;
+    border-radius: 20px;
+    border-left: 2px solid #FFD400;
+    border-top: 2px solid #FFD400;
+    border-right: 2px solid #806600;
+    border-bottom: 2px solid #806600;
 }
 
 #photo-button, #button-to-new-prompt {
   background-color: green;
   color: #F1E9DA;
   font-weight: bold;
+  border-left: 2px solid #F1E9DA;
+  border-top: 2px solid #F1E9DA;
+  border-right: 2px solid gray;
+  border-bottom: 2px solid gray;
 }
 
 #button-to-decks {
@@ -221,6 +230,10 @@ button {
     line-height: 20px;
     padding-top: 10px;
     font-weight: bold;
+    border-left: 2px solid #F1E9DA;
+    border-top: 2px solid #F1E9DA;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
 }
 
 .left {
@@ -281,4 +294,12 @@ button {
   border-top: 1px solid #FFD400;
   margin-top: 30px;
   margin-left: 10%;
+}
+
+.open-round-link, .gallery-link, .deck-link {
+  border-radius: 20px;
+  border-left: 2px solid #FFD400;
+  border-top: 2px solid #FFD400;
+  border-right: 2px solid #806600;
+  border-bottom: 2px solid #806600;
 }
