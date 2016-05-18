@@ -1,7 +1,7 @@
 function getContactsToConfirm(args){
   $('#load-message').hide();
   for (var i = 0; i < args.contacts.length; i++) {
-      $('#contacts-confirm-list').append('<li id="contacts-'+i+'">'+args.contacts[i][0]+'</li>');
+      $('#contacts-confirm-list').append('<li class="contacts-confirm" id="contacts-'+i+'">'+args.contacts[i][0]+'</li>');
     }
 }
 

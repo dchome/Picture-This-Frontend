@@ -1,6 +1,6 @@
 function getExistingPrompt(args){
     $('#prompt-body').html(args.pendingRounds[args.roundIndex].prompt)
-    $('#prompt-time').html("Ends on:<br>"+formatTime(args.pendingRounds[args.roundIndex].end_time, 'open'));
+    $('#prompt-time').html("Submit a photo by:<br>"+formatTime(args.pendingRounds[args.roundIndex].end_time, 'open'));
     args.roundId = args.pendingRounds[args.roundIndex].round_id
 }
 
@@ -12,6 +12,7 @@ function getPicture(args) {
 }
 
 function onPictureSuccess(args, imageURI) {
+    $('#photo-confirm-message').html("Submitting Photo...")
     var options = new FileUploadOptions();
         options.fileKey="image";
         options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -28,7 +29,7 @@ function onPictureSuccess(args, imageURI) {
 }
 
 function win(r) {
-    $('#photo-confirm-message').html("Your photo was successfully submitted!")
+    $('#photo-confirm-message').html("Your photo was<br>successfully submitted!<br><br>Come back when the round ends<br> to see everyone's photos!")
     $('#photo-button').hide();
 }
 

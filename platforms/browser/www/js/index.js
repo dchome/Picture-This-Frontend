@@ -50,6 +50,6 @@ function attemptToRegister(){
   }).done(function(response){
     document.location = 'landing.html'
   }).fail(function(response){
-    $('#errors').html("Incomplete or faulty information. Please try again.")
+    $('#errors').html("Incomplete or faulty information.")
   })
 }
