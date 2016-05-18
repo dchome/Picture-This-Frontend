@@ -155,7 +155,7 @@ input[type="submit"] {
     margin: 10px;
 }
 
-#login-button {
+#login-button, #register-submit {
   -webkit-appearance: none;
   width: 60%;
   height: 60px;
@@ -163,7 +163,7 @@ input[type="submit"] {
   font-size: 20px;
 }
 
-#register-link {
+#register-link, #button-to-login, #logout-button {
   width: 40%;
   height: 45px;
   margin: 0px;
@@ -186,6 +186,7 @@ button {
 
 #button-to-decks {
     background-color: green;
+    margin: 40px;
     color: #F1E9DA;
 }
 
