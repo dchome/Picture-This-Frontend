@@ -312,3 +312,7 @@ button {
 .image-show{
   border: 2px solid #F2EFDA;
 }
+
+#prompt-wrapper{
+  margin-top: 40%;
+}
