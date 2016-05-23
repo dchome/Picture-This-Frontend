@@ -7,9 +7,12 @@ function getContacts(args) {
 }
 
 function onContactsSuccess(contacts){
-    for (var i = 1; i < contacts.length; i++) {
+
+    for (var i = 0; i < contacts.length; i++) {
       $('#load-message').hide();
-      $('#all-contacts-list').append('<div class="contact-listing"><label class="label-for-contact" for="contacts-'+i+'">'+contacts[i].name.formatted+'</label><input type="checkbox" class="contact-checkbox" id="contacts-'+i+'" value="'+contacts[i].phoneNumbers[0].value+'"></div><br>');
+      if(contacts[i].phoneNumbers != null && contacts[i].name.formatted.length < 18){
+        $('#all-contacts-list').append('<div class="contact-listing"><label class="label-for-contact" for="contacts-'+(i+1)+'">'+contacts[i].name.formatted+'</label><input type="checkbox" class="contact-checkbox" id="contacts-'+(i+1)+'" value="'+contacts[i].phoneNumbers[0].value+'"></div><br>');
+      }
     }
     $('#all-contacts-list').append('<div id="contact-button-wrapper"><input type="submit" id="button-to-contacts-confirm" value="Select"></div>')
 }
