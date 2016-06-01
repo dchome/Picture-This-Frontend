@@ -1,24 +1,6 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-    font-family: 'American Typewriter';
+    font-family: 'Optima';
 }
 
 body {
@@ -30,10 +12,12 @@ body {
     margin:0px;
     padding:0px;
     width:100%;
-    background-color: #2E294E;
-    color: #FFD400;
-    font-family: 'American Typewriter';
-    ;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Optima';
+    background-image: url('../bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Portrait layout (default) */
@@ -43,31 +27,17 @@ body {
     text-align: center;
 }
 
-#photospace-wrapper{
-    height: 200px;
-    width: 135px;
-    display: block;
-    margin: 30px auto;
-    border: 1px dashed black;
-}
-
-#photospace {
-    height: 200px;
-    width: 135px;
-}
-
 .link-button {
     margin: 10px 0 10px 0;
 }
 
 p, h3 {
-  font-weight: bold;
-  color: #F2EFDA;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 #no-rounds {
   margin-top: 25px;
-  color: #F2EFDA;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 h1 {
@@ -99,8 +69,8 @@ h1 {
 .gallery-photo {
     height: 200px;
     width: auto;
-    border-radius: 50px;
-    border: 3px solid #F2EFDA;
+    border-radius: 4px;
+    border: 1px solid grey;
 }
 
 #photo-wrapper {
@@ -123,10 +93,10 @@ ul {
 li {
     text-indent: none;
     list-style-type: none;
-    background-color: #541388;
+    background-color: rgba(255, 255, 255, 0.4);
     margin: 10px auto 10px auto;
     padding: 8px;
-    border-radius: 5px;
+    border-radius: 2px;
     width: 80%;
     text-align: center;
 }
@@ -139,30 +109,28 @@ li {
 .participant-name, .submitted-round-link, .contacts-confirm {
     background-color: transparent;
     box-shadow: none;
-    border-top: 1px solid #FFD400;
+    border-top: 1px solid grey;
 }
 
 input {
-    background-color: #F1E9DA;
+    background-color: rgba(255, 255, 255, 0.4);
     padding: 10px;
     margin: 5px;
     font-size: 16px;
     height: 26px;
-    border-radius: 5px;
-    border-top: 3px solid #50553F;
-    border-left: 3px solid #50553F;
-    border-bottom: 3px solid white;
-    border-right: 3px solid white;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255);
+    color: white;
 }
 
 input[type="submit"] {
     -webkit-appearance: none;
-    color: #FFD400;
-    background-color: #541388;
+    color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.4);
     padding: 10px;
     font-size: 16px;
-    border-radius: 10px;
-    border: none;
+    border-radius: 2px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
     margin: 10px;
 }
 
@@ -172,17 +140,13 @@ input[type="submit"] {
   height: 60px;
   margin: 20px 0px 20px 0px;
   font-size: 20px;
-  font-weight: bold;
-  border-radius: 20px;
-  border-left: 2px solid #FFD400;
-  border-top: 2px solid #FFD400;
-  border-right: 2px solid #806600;
-  border-bottom: 2px solid #806600;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255);
 }
 
 #button-to-contacts-confirm {
-  background-color: green;
-  color: #F2EFDA;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 #register-link, #button-to-login, #logout-button, .back {
@@ -191,51 +155,40 @@ input[type="submit"] {
   margin: 0px;
   font-size: 20px;
   line-height: 15px;
+  border: 1px solid rgba(255, 255, 255);
 }
 
 .back {
-  font-weight: bold;
   margin-bottom: 20px;
 }
 
 button {
-    color: #FFD400;
-    background-color: #541388;
+    color: rgba(255, 255, 255, 0.65);;
+    background-color: rgba(255, 255, 255, 0.4);
     box-sizing: border-box;
     width: 80%;
     height: 60px;
     padding: 15px;
     font-size: 20px;
-    border-radius: 20px;
-    border-left: 2px solid #FFD400;
-    border-top: 2px solid #FFD400;
-    border-right: 2px solid #806600;
-    border-bottom: 2px solid #806600;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255);
 }
 
 #photo-button, #button-to-new-prompt {
-  background-color: green;
-  color: #F1E9DA;
-  font-weight: bold;
-  border-left: 2px solid #F1E9DA;
-  border-top: 2px solid #F1E9DA;
-  border-right: 2px solid gray;
-  border-bottom: 2px solid gray;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255);
 }
 
 #button-to-decks {
-    background-color: green;
-    color: #F1E9DA;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.65);
     width: 38.75%;
     margin: 5% 10% 5% 1.25%;
     float: left;
     line-height: 20px;
     padding-top: 10px;
-    font-weight: bold;
-    border-left: 2px solid #F1E9DA;
-    border-top: 2px solid #F1E9DA;
-    border-right: 2px solid gray;
-    border-bottom: 2px solid gray;
+    border: 1px solid rgba(255, 255, 255);
 }
 
 .left {
@@ -244,7 +197,6 @@ button {
   float: left;
   line-height: 20px;
   padding-top: 10px;
-  font-weight: bold;
 }
 
 .right {
@@ -253,7 +205,6 @@ button {
   float: left;
   line-height: 20px;
   padding-top: 10px;
-  font-weight: bold;
 }
 
 #logout-wrapper {
@@ -264,7 +215,7 @@ button {
 .contact-listing {
   display: block;
   margin: 30px;
-  border-bottom: 1px solid #FFD400;
+  border-bottom: 1px solid gray;
 }
 
 .contact-checkbox {
@@ -273,7 +224,7 @@ button {
     margin-top: 20px;
     padding: 20px;
     border-radius: 30px;
-    background-color: #541388;
+    background-color: rgba(255, 255, 255, 0.4);
     border: none;
 
 }
@@ -293,24 +244,21 @@ button {
 
 #contact-button-wrapper {
   width: 80%;
-  border-top: 1px solid #FFD400;
+  border-top: 1px solid grey;
   margin-top: 30px;
   margin-left: 10%;
 }
 
 .open-round-link, .gallery-link, .deck-link {
-  border-radius: 20px;
-  border-left: 2px solid #FFD400;
-  border-top: 2px solid #FFD400;
-  border-right: 2px solid #806600;
-  border-bottom: 2px solid #806600;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255);
 }
 
 .logo {
 }
 
 .image-show{
-  border: 2px solid #F2EFDA;
+  border: 2px solid rgba(255, 255, 255);
 }
 
 #prompt-wrapper{
